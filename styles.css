@@ -22,6 +22,9 @@ html {
   display: flex;
   flex-direction: column;
   gap: 5px;
+  padding: 5px;
+  background-color: gray;
+  border-radius: 10px;
 }
 
 /* Grid Rows */
@@ -30,61 +33,94 @@ html {
   gap: 5px;
 }
 
-/* Grid Cells */
+.grid-cell.cell-2 {
+  background-color: #eee4da;
+  color: #776e65;
+}
+
+.grid-cell.cell-4 {
+  background-color: #ede0c8;
+  color: #776e65;
+}
+
+.grid-cell.cell-8 {
+  background-color: #f2b179;
+  color: white;
+}
+
+.grid-cell.cell-16 {
+  background-color: #f59563;
+  color: white;
+}
+
+.grid-cell.cell-32 {
+  background-color: #f67c5f;
+  color: white;
+}
+
+.grid-cell.cell-64 {
+  background-color: #f65e3b;
+  color: white;
+}
+
+.grid-cell.cell-128 {
+  background-color: #edcf72;
+  color: white;
+}
+
+.grid-cell.cell-256 {
+  background-color: #edcc61;
+  color: white;
+}
+
+.grid-cell.cell-512 {
+  background-color: #edc850;
+  color: white;
+}
+
+.grid-cell.cell-1024 {
+  background-color: #edc53f;
+  color: white;
+}
+
+.grid-cell.cell-2048 {
+  background-color: #edc22e;
+  color: white;
+}
+
 .grid-cell {
   width: 100px;
   height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ccc0b3;
   font-size: 48px;
   font-weight: bold;
-  border: 1px solid #ccc;
+  border: 1px solid black;
+  background-color: #cdc1b4;
+  color: #776e65;
   border-radius: 10px;
   transition:
-    background-color 0.2s ease,
-    transform 0.1s ease;
-}
-
-.grid-cell.cell-2 {
-  background-color: #eee4da;
-}
-.grid-cell.cell-4 {
-  background-color: #ede0c8;
-}
-.grid-cell.cell-8 {
-  background-color: #f2b179;
-}
-.grid-cell.cell-16 {
-  background-color: #f59563;
-}
-.grid-cell.cell-32 {
-  background-color: #f67c5f;
-}
-.grid-cell.cell-64 {
-  background-color: #f65e3b;
-}
-.grid-cell.cell-128 {
-  background-color: #edcf72;
-}
-.grid-cell.cell-256 {
-  background-color: #edcc61;
-}
-.grid-cell.cell-512 {
-  background-color: #edc850;
-}
-.grid-cell.cell-1024 {
-  background-color: #edc53f;
-}
-.grid-cell.cell-2048 {
-  background-color: #edc22e;
+    background-color 0.3s,
+    color 0.3s;
 }
 
 .grid-cell.new {
-  animation: scale-up 0.2s ease-out;
+  transform: scale(0);
+  animation: newTileAnimation 0.3s forwards;
 }
 
+@keyframes newTileAnimation {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 @keyframes scale-up {
   0% {
     transform: scale(0);
@@ -94,15 +130,35 @@ html {
   }
 }
 
-/* Responsive for smaller screens */
-@media (max-width: 600px) {
-  .grid-cell {
-    width: 80px;
-    height: 80px;
-    font-size: 32px;
-  }
-}
-
+/* #bot-btn { */
+/*   margin-left: 50px; */
+/*   background-color: #4caf50; /* Green background */
+*/
+/*   color: white; /* White text */ */
+/*   font-size: 18px; /* Text size */ */
+/*   padding: 5px 10px; /* Padding around the text */ */
+/*   border: none; /* No border */ */
+/*   border-radius: 5px; /* Rounded corners */ */
+/*   cursor: pointer; /* Change cursor to pointer */ */
+/*   transition: */
+/*     background-color 0.3s, */
+/*     transform 0.2s; /* Smooth transitions */ */
+/* } */
+/**/
+/* #bot-btn:hover { */
+/*   background-color: #45a049; /* Darker green when hovered */ */
+/*   transform: scale(1.05); /* Slightly increase button size */ */
+/* } */
+/**/
+/* #bot-btn:active { */
+/*   background-color: #388e3c; /* Even darker green when clicked */ */
+/*   transform: scale(0.98); /* Slightly shrink button when clicked */ */
+/* } */
+/**/
+/* #bot-btn:focus { */
+/*   outline: none; /* Remove focus outline */ */
+/*   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Add a subtle shadow on focus */ */
+/* } */
 #restart-btn {
   margin-left: 50px;
   background-color: #4caf50; /* Green background */

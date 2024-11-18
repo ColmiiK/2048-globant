@@ -1,11 +1,11 @@
 let score = 0;
+let maxScore = 0;
 let grid = [
   [0, 0, 0, 0],
   [0, 0, 0, 0],
   [0, 0, 0, 0],
   [0, 0, 0, 0],
 ];
-
 document.addEventListener("keydown", handleKeyPress);
 function handleKeyPress(event) {
   let moved = false;
@@ -17,23 +17,29 @@ function handleKeyPress(event) {
     addValue(grid);
     updateGrid(grid);
     updateScore();
+    if (isGameOver(grid)) {
+      alert("Game over!");
+    }
   }
 }
-
 const button = document.getElementById("restart-btn");
 button.addEventListener("click", function () {
+  const maxScoreElement = document.getElementById("max-score");
+  if (score > maxScore) maxScoreElement.textContent = score;
+  score = 0;
   resetGrid();
 });
-
+// const botButton = document.getElementById("bot-button");
+// botButton.addEventListener("click", function () {
+//
+// });
 function updateScore() {
   const scoreElement = document.getElementById("score");
   scoreElement.textContent = score;
 }
-
 function arraysEqual(a, b) {
   return a.length === b.length && a.every((val, index) => val === b[index]);
 }
-
 function slideMerge(row) {
   let newRow = row.filter((val) => val !== 0);
   for (let i = 0; i < newRow.length - 1; i++) {
@@ -49,7 +55,6 @@ function slideMerge(row) {
   }
   return newRow;
 }
-
 function moveUp(grid) {
   let moved = false;
   for (let col = 0; col < grid[0].length; col++) {
@@ -102,7 +107,29 @@ function moveRight(grid) {
   }
   return moved;
 }
+function isGameOver(grid) {
+  for (let row = 0; row < grid.length; row++) {
+    for (let col = 0; col < grid[row].length; col++) {
+      if (grid[row][col] === 0) return false;
+    }
+  }
+  for (let row = 0; row < grid.length; row++) {
+    for (let col = 0; col < grid[row].length; col++) {
+      const value = grid[row][col];
 
+      // Check right
+      if (col < grid[row].length - 1 && grid[row][col + 1] === value) {
+        return false;
+      }
+
+      // Check down
+      if (row < grid.length - 1 && grid[row + 1][col] === value) {
+        return false;
+      }
+    }
+  }
+  return true;
+}
 function addValue(grid) {
   let emptyCells = [];
   for (let row = 0; row < grid.length; row++) {
@@ -111,10 +138,6 @@ function addValue(grid) {
         emptyCells.push({ row, col });
       }
     }
-  }
-  if (emptyCells.length === 0) {
-    window.alert("Game over!");
-    return;
   }
   let randomIndex = Math.floor(Math.random() * emptyCells.length);
   let { row, col } = emptyCells[randomIndex];
@@ -130,7 +153,6 @@ function addValue(grid) {
     cell.classList.remove("new");
   }, 200);
 }
-
 function drawGrid(gridSize) {
   const container = document.querySelector(".grid-container");
   for (let i = 0; i < gridSize; i++) {
@@ -161,7 +183,6 @@ function updateGrid(grid) {
     }
   }
 }
-
 function resetGrid() {
   const tmp = document.querySelector(".grid-container");
   while (tmp.firstChild) {
@@ -177,12 +198,10 @@ function resetGrid() {
   scoreElement.textContent = 0;
   startGame();
 }
-
 function startGame() {
   drawGrid(4);
   addValue(grid);
   addValue(grid);
   updateGrid(grid);
 }
-
 startGame();
