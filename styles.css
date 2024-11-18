@@ -1,0 +1,143 @@
+/* .game-container { */
+/*   display: flex; */
+/*   justify-content: center; */
+/*   align-items: center; */
+/*   flex-direction: column; */
+/*   height: 1000px; */
+/*   font-size: 50px; */
+/* } */
+/* .score-container { */
+/*   font-size: 20px; */
+/*   padding-bottom: 20px; */
+/* } */
+/* .grid-container { */
+/*   display: flex; */
+/*   flex-direction: column; */
+/*   gap: 5px; */
+/* } */
+/**/
+/* .grid-row { */
+/*   display: flex; */
+/*   gap: 5px; */
+/* } */
+/**/
+/* .grid-cell { */
+/*   width: 100px; */
+/*   height: 100px; */
+/*   display: flex; */
+/*   justify-content: center; */
+/*   align-items: center; */
+/*   background-color: lightgray; */
+/*   font-size: 48px; */
+/*   font-weight: bold; */
+/*   border: 1px solid #ccc; */
+/* } */
+/**/
+/* .grid-cell.cell-2 { */
+/*   background-color: #eee4da; */
+/* } */
+/**/
+/* .grid-cell.cell-4 { */
+/*   background-color: #ede0c8; */
+/* } */
+/* Game Container */
+.game-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  font-size: 50px;
+}
+
+/* Score Container */
+.score-container {
+  font-size: 20px;
+  padding-bottom: 20px;
+}
+
+/* Grid Container */
+.grid-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* Grid Rows */
+.grid-row {
+  display: flex;
+  gap: 5px;
+}
+
+/* Grid Cells */
+.grid-cell {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ccc0b3;
+  font-size: 48px;
+  font-weight: bold;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
+}
+
+.grid-cell.cell-2 {
+  background-color: #eee4da;
+}
+.grid-cell.cell-4 {
+  background-color: #ede0c8;
+}
+.grid-cell.cell-8 {
+  background-color: #f2b179;
+}
+.grid-cell.cell-16 {
+  background-color: #f59563;
+}
+.grid-cell.cell-32 {
+  background-color: #f67c5f;
+}
+.grid-cell.cell-64 {
+  background-color: #f65e3b;
+}
+.grid-cell.cell-128 {
+  background-color: #edcf72;
+}
+.grid-cell.cell-256 {
+  background-color: #edcc61;
+}
+.grid-cell.cell-512 {
+  background-color: #edc850;
+}
+.grid-cell.cell-1024 {
+  background-color: #edc53f;
+}
+.grid-cell.cell-2048 {
+  background-color: #edc22e;
+}
+
+.grid-cell.new {
+  animation: scale-up 0.2s ease-out;
+}
+
+@keyframes scale-up {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 600px) {
+  .grid-cell {
+    width: 80px;
+    height: 80px;
+    font-size: 32px;
+  }
+}
