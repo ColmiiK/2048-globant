@@ -1,52 +1,13 @@
-/* .game-container { */
-/*   display: flex; */
-/*   justify-content: center; */
-/*   align-items: center; */
-/*   flex-direction: column; */
-/*   height: 1000px; */
-/*   font-size: 50px; */
-/* } */
-/* .score-container { */
-/*   font-size: 20px; */
-/*   padding-bottom: 20px; */
-/* } */
-/* .grid-container { */
-/*   display: flex; */
-/*   flex-direction: column; */
-/*   gap: 5px; */
-/* } */
-/**/
-/* .grid-row { */
-/*   display: flex; */
-/*   gap: 5px; */
-/* } */
-/**/
-/* .grid-cell { */
-/*   width: 100px; */
-/*   height: 100px; */
-/*   display: flex; */
-/*   justify-content: center; */
-/*   align-items: center; */
-/*   background-color: lightgray; */
-/*   font-size: 48px; */
-/*   font-weight: bold; */
-/*   border: 1px solid #ccc; */
-/* } */
-/**/
-/* .grid-cell.cell-2 { */
-/*   background-color: #eee4da; */
-/* } */
-/**/
-/* .grid-cell.cell-4 { */
-/*   background-color: #ede0c8; */
-/* } */
+@import url("https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 /* Game Container */
+html {
+  font-family: "Funnel Sans", sans-serif;
+}
 .game-container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 100vh;
   font-size: 50px;
 }
 
@@ -140,4 +101,33 @@
     height: 80px;
     font-size: 32px;
   }
+}
+
+#restart-btn {
+  margin-left: 50px;
+  background-color: #4caf50; /* Green background */
+  color: white; /* White text */
+  font-size: 18px; /* Text size */
+  padding: 5px 10px; /* Padding around the text */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Change cursor to pointer */
+  transition:
+    background-color 0.3s,
+    transform 0.2s; /* Smooth transitions */
+}
+
+#restart-btn:hover {
+  background-color: #45a049; /* Darker green when hovered */
+  transform: scale(1.05); /* Slightly increase button size */
+}
+
+#restart-btn:active {
+  background-color: #388e3c; /* Even darker green when clicked */
+  transform: scale(0.98); /* Slightly shrink button when clicked */
+}
+
+#restart-btn:focus {
+  outline: none; /* Remove focus outline */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Add a subtle shadow on focus */
 }

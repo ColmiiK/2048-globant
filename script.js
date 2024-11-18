@@ -20,6 +20,11 @@ function handleKeyPress(event) {
   }
 }
 
+const button = document.getElementById("restart-btn");
+button.addEventListener("click", function () {
+  resetGrid();
+});
+
 function updateScore() {
   const scoreElement = document.getElementById("score");
   scoreElement.textContent = score;
@@ -157,8 +162,27 @@ function updateGrid(grid) {
   }
 }
 
-drawGrid(4);
-addValue(grid);
-addValue(grid);
-updateGrid(grid);
-console.log(score);
+function resetGrid() {
+  const tmp = document.querySelector(".grid-container");
+  while (tmp.firstChild) {
+    tmp.removeChild(tmp.firstChild);
+  }
+  grid = [
+    [0, 0, 0, 0],
+    [0, 0, 0, 0],
+    [0, 0, 0, 0],
+    [0, 0, 0, 0],
+  ];
+  const scoreElement = document.getElementById("score");
+  scoreElement.textContent = 0;
+  startGame();
+}
+
+function startGame() {
+  drawGrid(4);
+  addValue(grid);
+  addValue(grid);
+  updateGrid(grid);
+}
+
+startGame();
