@@ -36,6 +36,7 @@ button.addEventListener("click", function () {
 function updateScore() {
   const scoreElement = document.getElementById("score");
   scoreElement.textContent = score;
+  if (score >= 2048) alert("You win!");
 }
 function arraysEqual(a, b) {
   return a.length === b.length && a.every((val, index) => val === b[index]);
